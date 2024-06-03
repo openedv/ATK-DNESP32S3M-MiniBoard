@@ -7,7 +7,7 @@
  ****************************************************************************************************
  * @attention
  *
- * platform     : ALIENTEK DNESP32S3 system board
+ * platform     : ALIENTEK DNESP32S3 Mini board
  * website      : www.alientek.com
  * forum        : www.openedv.com/forum.php
  *

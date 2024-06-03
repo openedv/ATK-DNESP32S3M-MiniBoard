@@ -57,5 +57,3 @@ There are two ways to download code for ESP32S3.
 #### 3.2 Phenomenon
 
 After normal operation, press the BOOT key to trigger an external interrupt, and the LED indicator status changes from on to off, or from off to on.
-
-![]()

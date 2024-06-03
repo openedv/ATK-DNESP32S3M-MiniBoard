@@ -12,7 +12,7 @@ The hardware resources used in this experiment are:
 - UART0
   - TXD0 - IO43
   - RXD0 - IO44
-- 0.96寸LCD
+- SPILCD
 - SD
   - SDCS - IO2
   - SCK - IO12
@@ -34,5 +34,3 @@ If you need to download the code, please refer to the 3.3 Running Offline sectio
 #### 3.2 Phenomenon
 
 Perform read and write operations on files in the SD card, then display the read content on SPI LCD.
-
-![](../../../../1_docs/3_figures/examples/sdcard/spilcd_phenomenon_mpy.png)

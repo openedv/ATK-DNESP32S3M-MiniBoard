@@ -1,46 +1,87 @@
-/**
- ***************************************************************************************************
- * 实验简介
- * 实验名称：图片显示 实验
- * 实验平台：正点原子 ESP32-S3 最小系统板
- * 实验目的：学习在ESP32-S3上面的图片显示方法,实现一个简单的数码相框.
+## pitures example
 
- ***************************************************************************************************
- * 硬件资源及引脚分配
- * 1 LED
-     LED - IO1
- * 2 独立按键
-     BOOT - IO0
- * 4 ALIENTEK 0.96寸SPILCD模块
- * 5 SD卡,通过SPI2驱动 
- * 
- ***************************************************************************************************
- * 实验现象
- * 1 本实验开机的时候先检测字库，然后检测SD卡是否存在，如果SD卡存在，则开始查找SD卡根目录下的PICTURE文件夹，
- *   如果找到则显示该文件夹下面的图片文件（支持bmp、jpg、jpeg、png或gif格式），循环显示，通过按KEY0和KEY1可以快
- *   速浏览下一张和上一张，KEY3按键用于暂停/继续播放，DS1用于指示当前是否处于暂停状态。如果未找到PICTURE
- *   文件夹/任何图片文件，则提示错误。
- * 2 LED闪烁，指示程序正在运行
+### 1 Considerations
 
- ***************************************************************************************************
- * 注意事项
- * USART1的通讯波特率为115200
- * 请使用XCOM串口调试助手，其他串口软件可能控制DTR、RST导致MCU复位、程序不运行
- * 最小系统板IO4引脚连接串口转TTL模块上的RXD，IO5引脚连接串口转TTL模块上的TXD，该模块再通过数据线连接至电脑上
- * 需将SD卡正确插入板载的SD卡槽，才能正常运行本实验例程
+In this example, we need to utilize the `dir_sdi()` function from the `ff.c` file. Since this function is defined as `static` within the ESP-IDF framework, it is inherently restricted to being called only within the `ff.c` file and cannot be directly accessed from external files. To enable the invocation of the `dir_sdi()` function from external files, we removed its `static` modifier and added a function declaration in the `ff.h` header file. This adjustment allows the function to be appropriately accessed from external files. It is worth noting that we placed this function declaration on line 338 of the `ff.h` file. We recommend readers to also declare it on or near this line to maintain consistency and readability of the code.
 
- ***********************************************************************************************************
- * 公司名称：广州市星翼电子科技有限公司（正点原子）
- * 电话号码：020-38271790
- * 传真号码：020-36773971
- * 公司网址：www.alientek.com
- * 购买地址：zhengdianyuanzi.tmall.com
- * 技术论坛：http://www.openedv.com/forum.php
- * 最新资料：www.openedv.com/docs/index.html
- *
- * 在线视频：www.yuanzige.com
- * B 站视频：space.bilibili.com/394620890
- * 公 众 号：mp.weixin.qq.com/s/y--mG3qQT8gop0VRuER9bw
- * 抖    音：douyin.com/user/MS4wLjABAAAAi5E95JUBpqsW5kgMEaagtIITIl15hAJvMO8vQMV1tT6PEsw-V5HbkNLlLMkFf1Bd
- ***********************************************************************************************************
- */
+- **ff.c file**
+
+![](../../../../1_docs/3_figures/examples/chinese_display/modify_to.png)
+
+- **ff.h file**
+
+![](../../../../1_docs/3_figures/examples/chinese_display/function_declaration.png)
+
+### 2 Brief
+
+learning JPEG, PNG, BMP, and GIF decoding.
+
+### 3 Hardware Hookup
+
+The hardware resources used in this experiment are:
+
+- LED - IO1
+- UART0
+  - TXD0 - IO43
+  - RXD0 - IO44
+- SPI_LCD
+  - CS - IO21
+  - SCK - IO12
+  - SDA - IO11
+  - DC - IO40
+  - PWR - IO41
+  - RST - IO38
+- SD
+  - SDCS - IO2
+  - SCK - IO12
+  - MOSI - IO11
+  - MISO - IO13
+
+The hardware is consistent with the **sd example**, and will not be described in detail here.
+
+**Note:** Please copy the entire "PICTURE" folder located in the path "2_examples/4_SD_card_mootdirectory_file" to the root directory of the SD card.
+
+### 4 Running
+
+#### 4.1 Compilation and Download
+
+There are two ways to download code for ESP32S3.
+
+##### 4.1.1 USB UART
+
+![](../../../../1_docs/3_figures/examples/led/compilation(UART).png)
+
+**1 Compilation process**
+
+- Connect the USB UART on the DNESP32S3 development board to your computer using a USB data cable
+- Open the '14_pitures' example using VS Code
+- Select UART port number (Figure ①:ESP-IDF: Select Port to Use (COM, tty, usbserial))
+- Set Engineering Target Chip (Figure ②:ESP-IDF: Set Espressif Device Target)
+- Clearing project engineering(Figure ③:ESP IDF: Full Clean)
+- Select Flash Method (Figure ⑤:ESP-IDF: Select Flash Method)
+- Build Project (Figure ④:ESP-IDF: Build Project)
+
+**2 Download process**
+
+- Download(Figure ⑥:ESP-IDF: Flash Device)
+
+##### 4.1.2 JTAG(USB)
+
+![](../../../../1_docs/3_figures/examples/led/compilation(JTAG).png)
+
+**1 Compilation process**
+
+- Connect the USB(JTAG) on the DNESP32S3 development board to your computer using a USB data cable
+- Open the '14_pitures' example using VS Code
+- Select JTAG port number(Figure ①:ESP-IDF: Select Port to Use (COM, tty, usbserial))
+- Clearing project engineering(Figure ③:ESP IDF: Full Clean)
+- Select Flash Method(Figure ⑤:ESP-IDF: Select Flash Method)
+- Build Project(Figure ④:ESP-IDF: Build Project)
+
+**2 Download process**
+
+- Download(Figure ⑥:ESP-IDF: Flash Device)
+
+#### 4.2 Phenomenon
+
+![](../../../../1_docs/3_figures/examples/pitcures/spilcd_phenomenon_idf.png)

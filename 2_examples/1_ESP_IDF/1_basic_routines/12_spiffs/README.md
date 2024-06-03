@@ -1,36 +1,58 @@
-/**
- ***************************************************************************************************
- * 实验简介
- * 实验名称：SPIFFS实验
- * 实验平台：正点原子 ESP32-S3 最小系统板
- * 实验目的：学习ESP32内部nor flash的使用
+## spiffs example
 
- ***************************************************************************************************
- * 硬件资源及引脚分配
- * 1 正点原子0.96寸SPILCD模块
- * 2 SPIFFS
+### 1 Brief
 
- ***************************************************************************************************
- * 实验现象
- * 1 在nor flash指定区域新建holle.txt文件，然后对这文件进行读写操作。
- * 2 LED闪烁 ,提示程序运行
+The main function of this code is learn partition table operations .
 
- ***************************************************************************************************
- * 注意事项
- * 无
+### 2 Hardware Hookup
 
- ***********************************************************************************************************
- * 公司名称：广州市星翼电子科技有限公司（正点原子）
- * 电话号码：020-38271790
- * 传真号码：020-36773971
- * 公司网址：www.alientek.com
- * 购买地址：zhengdianyuanzi.tmall.com
- * 技术论坛：http://www.openedv.com/forum.php
- * 最新资料：www.openedv.com/docs/index.html
- *
- * 在线视频：www.yuanzige.com
- * B 站视频：space.bilibili.com/394620890
- * 公 众 号：mp.weixin.qq.com/s/y--mG3qQT8gop0VRuER9bw
- * 抖    音：douyin.com/user/MS4wLjABAAAAi5E95JUBpqsW5kgMEaagtIITIl15hAJvMO8vQMV1tT6PEsw-V5HbkNLlLMkFf1Bd
- ***********************************************************************************************************
- */
+The hardware resources used in this experiment are:
+
+- None
+
+This example does not require any special hardware.
+
+### 3 Running
+
+#### 3.1 Compilation and Download
+
+There are two ways to download code for ESP32S3.
+
+##### 3.1.1 USB UART
+
+![](../../../../1_docs/3_figures/examples/led/compilation(UART).png)
+
+**1 Compilation process**
+
+- Connect the USB UART on the DNESP32S3 development board to your computer using a USB data cable
+- Open the '12_spiffs' example using VS Code
+- Select UART port number (Figure ①:ESP-IDF: Select Port to Use (COM, tty, usbserial))
+- Set Engineering Target Chip (Figure ②:ESP-IDF: Set Espressif Device Target)
+- Clearing project engineering（Figure ③:ESP IDF: Full Clean）
+- Select Flash Method (Figure ⑤:ESP-IDF: Select Flash Method)
+- Build Project (Figure ④:ESP-IDF: Build Project)
+
+**2 Download process**
+
+- Download(Figure ⑥:ESP-IDF: Flash Device)
+
+##### 3.1.2 JTAG(USB)
+
+![](../../../../1_docs/3_figures/examples/led/compilation(JTAG).png)
+
+**1 Compilation process**
+
+- Connect the USB(JTAG) on the DNESP32S3 development board to your computer using a USB data cable
+- Open the '12_spiffs' example using VS Code
+- Select JTAG port number(Figure ①:ESP-IDF: Select Port to Use (COM, tty, usbserial))
+- Clearing project engineering(Figure ③:ESP IDF: Full Clean)
+- Select Flash Method(Figure ⑤:ESP-IDF: Select Flash Method)
+- Build Project(Figure ④:ESP-IDF: Build Project)
+
+**2 Download process**
+
+- Download(Figure ⑥:ESP-IDF: Flash Device)
+
+#### 3.2 Phenomenon
+
+Performing read and write operations on partition tables.

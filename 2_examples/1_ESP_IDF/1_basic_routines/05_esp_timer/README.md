@@ -56,5 +56,3 @@ There are two ways to download code for ESP32S3.
 #### 3.2 Phenomenon
 
 After normal operation, the red LED will blink periodically.
-
-![](../../../../1_docs/3_figures/examples/led/led_example.gif)

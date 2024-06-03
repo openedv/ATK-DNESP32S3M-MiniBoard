@@ -1,43 +1,79 @@
-/**
- ***************************************************************************************************
- * 实验简介
- * 实验名称：SD卡实验
- * 实验平台：正点原子 ESP32-S3 最小系统板
- * 实验目的：学习SDIO驱动SD卡的使用
+## sd example
 
- ***************************************************************************************************
- * 硬件资源及引脚分配
- * 1 LED
-     LED - IO1
- * 2 按键
-     BOOT - IO0 
- * 3 正点原子0.96寸SPILCD模块
- * 4 SD卡(SDIO驱动)
+### 1 Brief
 
- ***************************************************************************************************
- * 实验现象
- * 1 程序运行后，若初始化SD卡成功，则会通过串口或者VsCode终端输出SD卡的相关参数，并且在LCD上显示SD卡的总容量和剩余容量
- * 2 LED闪烁，指示程序正在运行
+The main function of this code is to learn the TF card module.
 
- ***************************************************************************************************
- * 注意事项
- * USART1的通讯波特率为115200
- * 请使用XCOM串口调试助手，其他串口软件可能控制DTR、RST导致MCU复位、程序不运行
- * 最小系统板IO4引脚连接串口转TTL模块上的RXD，IO5引脚连接串口转TTL模块上的TXD，该模块再通过数据线连接至电脑上
- * 需将SD卡正确插入板载的SD卡槽，才能正常运行本实验例程
+### 2 Hardware Hookup
 
- ***********************************************************************************************************
- * 公司名称：广州市星翼电子科技有限公司（正点原子）
- * 电话号码：020-38271790
- * 传真号码：020-36773971
- * 公司网址：www.alientek.com
- * 购买地址：zhengdianyuanzi.tmall.com
- * 技术论坛：http://www.openedv.com/forum.php
- * 最新资料：www.openedv.com/docs/index.html
- *
- * 在线视频：www.yuanzige.com
- * B 站视频：space.bilibili.com/394620890
- * 公 众 号：mp.weixin.qq.com/s/y--mG3qQT8gop0VRuER9bw
- * 抖    音：douyin.com/user/MS4wLjABAAAAi5E95JUBpqsW5kgMEaagtIITIl15hAJvMO8vQMV1tT6PEsw-V5HbkNLlLMkFf1Bd
- ***********************************************************************************************************
- */
+The hardware resources used in this experiment are:
+
+- LED - IO1
+- UART0
+  - TXD0 - IO43
+  - RXD0 - IO44
+- SPI_LCD
+  - CS - IO21
+  - SCK - IO12
+  - SDA - IO11
+  - DC - IO40
+  - PWR - IO41
+  - RST - IO38
+- SD
+  - SDCS - IO2
+  - SCK - IO12
+  - MOSI - IO11
+  - MISO - IO13
+
+![](../../../../1_docs/3_figures/examples/sdcard/sdcard_sch.png)
+
+The position of the sdcard in the development board is shown as follows:
+
+![](../../../../1_docs/3_figures/examples/sdcard/sdcard_position.png)
+
+### 3 Running
+
+#### 3.1 Compilation and Download
+
+There are two ways to download code for ESP32S3.
+
+##### 3.1.1 USB UART
+
+![](../../../../1_docs/3_figures/examples/led/compilation(UART).png)
+
+**1 Compilation process**
+
+- Connect the USB UART on the DNESP32S3 development board to your computer using a USB data cable
+- Open the '11_sd' example using VS Code
+- Select UART port number (Figure ①:ESP-IDF: Select Port to Use (COM, tty, usbserial))
+- Set Engineering Target Chip (Figure ②:ESP-IDF: Set Espressif Device Target)
+- Clearing project engineering(Figure ③:ESP IDF: Full Clean)
+- Select Flash Method (Figure ⑤:ESP-IDF: Select Flash Method)
+- Build Project (Figure ④:ESP-IDF: Build Project)
+
+**2 Download process**
+
+- Download(Figure ⑥:ESP-IDF: Flash Device)
+
+##### 3.1.2 JTAG(USB)
+
+![](../../../../1_docs/3_figures/examples/led/compilation(JTAG).png)
+
+**1 Compilation process**
+
+- Connect the USB(JTAG) on the DNESP32S3 development board to your computer using a USB data cable
+- Open the '11_sd' example using VS Code
+- Select JTAG port number(Figure ①:ESP-IDF: Select Port to Use (COM, tty, usbserial))
+- Clearing project engineering(Figure ③:ESP IDF: Full Clean)
+- Select Flash Method(Figure ⑤:ESP-IDF: Select Flash Method)
+- Build Project(Figure ④:ESP-IDF: Build Project)
+
+**2 Download process**
+
+- Download(Figure ⑥:ESP-IDF: Flash Device)
+
+#### 3.2 Phenomenon
+
+After normal operation, the LCD displays the information (capacity) of the SD card. 
+
+![](../../../../1_docs/3_figures/examples/sdcard/spilcd_phenomenon_idf.png)

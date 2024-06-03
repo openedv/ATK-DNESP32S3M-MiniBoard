@@ -1,41 +1,79 @@
-/**
- ***************************************************************************************************
- * 实验简介
- * 实验名称：Smartconfig一键配网实验
- * 实验平台：正点原子 ESP32-S3最小系统板
- * 实验目的：学习Smartconfig一键配网
+## wifi smartconfig example
 
- ***************************************************************************************************
- * 硬件资源及引脚分配
- * 1 LED
-     LED(RED) - IO1
- * 2 正点原子 0.96 寸SPILCD模块
+### 1 Brief
+
+Learn about one-click network configuration.
+
+### 2 Hardware Hookup
+
+The hardware resources used in this experiment are:
+
+- LED - IO1
+
+- LCD - 0.96 inch screen
+  - CS - IO21
+  - SCK - IO12
+  - SDA - IO11
+  - DC - IO40
+  - PWR - IO41
+  - RST - IO38
 
 
- ***************************************************************************************************
- * 实验现象
- * 1 一键配网(SmartConfig)连接过程：
- *   设备进入初始化状态，开启混监听所有网络数据包,此时LCD显示"In the distribution network......"，表示设备已进入混监听模式。
- *   手机连上自己的WiFi，开启APP(EspTouch软件)软件，输入手机所在WiFi密码，请求配网，发送UDP广播包。
- *   ESP32 通过UDP包(长度)获取配置信息捕捉到路由SSID和PASSWD，连接路由器,此时LCD显示路由的账号与密码，表示连接路由成功。
- * 2 LED闪烁，指示程序正在运行。
+The WiFi is an internal peripheral, so there is no corresponding connection schematic diagram.
 
- ***************************************************************************************************
- * 注意事项
- * 无
- 
- ***********************************************************************************************************
- * 公司名称：广州市星翼电子科技有限公司（正点原子）
- * 电话号码：020-38271790
- * 传真号码：020-36773971
- * 公司网址：www.alientek.com
- * 购买地址：zhengdianyuanzi.tmall.com
- * 技术论坛：http://www.openedv.com/forum.php
- * 最新资料：www.openedv.com/docs/index.html
- *
- * 在线视频：www.yuanzige.com
- * B 站视频：space.bilibili.com/394620890
- * 公 众 号：mp.weixin.qq.com/s/y--mG3qQT8gop0VRuER9bw
- * 抖    音：douyin.com/user/MS4wLjABAAAAi5E95JUBpqsW5kgMEaagtIITIl15hAJvMO8vQMV1tT6PEsw-V5HbkNLlLMkFf1Bd
- ***********************************************************************************************************
- */
+### 3 Running
+
+#### 3.1 Compilation and Download
+
+There are two ways to download code for ESP32S3.
+
+##### 3.1.1 USB UART
+
+![](../../../../1_docs/3_figures/examples/led/compilation(UART).png)
+
+**1 Compilation process**
+
+- Connect the USB UART on the DNESP32S3 development board to your computer using a USB data cable
+- Open the '04_WiFi_SmartConfig' example using VS Code
+- Select UART port number (Figure ①:ESP-IDF: Select Port to Use (COM, tty, usbserial))
+- Set Engineering Target Chip (Figure ②:ESP-IDF: Set Espressif Device Target)
+- Clearing project engineering（Figure ③:ESP IDF: Full Clean）
+- Select Flash Method (Figure ⑤:ESP-IDF: Select Flash Method)
+- Build Project (Figure ④:ESP-IDF: Build Project)
+
+**2 Download process**
+
+- Download（Figure ⑥:ESP-IDF: Flash Device）
+
+##### 3.1.2 JTAG(USB)
+
+![](../../../../1_docs/3_figures/examples/led/compilation(JTAG).png)
+
+**1 Compilation process**
+
+- Connect the USB(JTAG) on the DNESP32S3 development board to your computer using a USB data cable
+- Open the '04_WiFi_SmartConfig' example using VS Code
+- Select JTAG port number (Figure ①:ESP-IDF: Select Port to Use (COM, tty, usbserial))
+- Clearing project engineering（Figure ③:ESP IDF: Full Clean）
+- Select Flash Method (Figure ⑤:ESP-IDF: Select Flash Method)
+- Build Project (Figure ④:ESP-IDF: Build Project)
+
+**2 Download process**
+
+- Download（Figure ⑥:ESP-IDF: Flash Device）
+
+#### 3.2 Phenomenon
+
+After normal operation,Configuring network using [EspTouch](https://www.espressif.com.cn/en/support/download/apps) mobile app.
+
+1.Download the EspTouch app software.
+
+![](../../../../1_docs/3_figures/examples/wifi_smartconfig/01_download_esp-touch.png)
+
+2.After successfully downloading, you need to transfer the installation package to your Android or iOS device for installation.
+
+3.After successfully downloading the program, open the 'EspTouch' app. In the app, click on the 'EspTouch' option. Note: Your phone must be connected to WiFi for one-click network configuration to work.
+
+![](../../../../1_docs/3_figures/examples/wifi_smartconfig/02_configuration_to_work.png)
+
+4.When the DNESP32S3 Mini board receives this message, the system will extract the SSID and password from it to connect to that network.

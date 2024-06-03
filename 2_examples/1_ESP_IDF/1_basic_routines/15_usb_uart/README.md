@@ -1,38 +1,76 @@
-/**
- ***************************************************************************************************
- * 实验简介
- * 实验名称：USB虚拟串口（Slave）实验
- * 实验平台：正点原子 ESP32-S3 最小系统板
- * 实验目的：学习使用USB模拟串口的使用
- * 
- ***************************************************************************************************
- * 硬件资源及引脚分配
- * 1 LED
-     LED - IO1
- * 3 正点原子0.96寸SPILCD模块
- * 
- ***************************************************************************************************
- * 实验现象
- * 1 程序运行后，模拟出虚拟串口，通过数据线与PC连接后，可通过PC上的串口调试助手进行数据通讯，
-     最小系统板端会通过USB虚拟串口实时发送USB虚拟串口接收到的数据
- * 2 LED闪烁，指示程序正在运行
- * 
- ***************************************************************************************************
- * 注意事项
- * 无
- * 
- ***********************************************************************************************************
- * 公司名称：广州市星翼电子科技有限公司（正点原子）
- * 电话号码：020-38271790
- * 传真号码：020-36773971
- * 公司网址：www.alientek.com
- * 购买地址：zhengdianyuanzi.tmall.com
- * 技术论坛：http://www.openedv.com/forum.php
- * 最新资料：www.openedv.com/docs/index.html
- *
- * 在线视频：www.yuanzige.com
- * B 站视频：space.bilibili.com/394620890
- * 公 众 号：mp.weixin.qq.com/s/y--mG3qQT8gop0VRuER9bw
- * 抖    音：douyin.com/user/MS4wLjABAAAAi5E95JUBpqsW5kgMEaagtIITIl15hAJvMO8vQMV1tT6PEsw-V5HbkNLlLMkFf1Bd
- ***********************************************************************************************************
- */
+## usb_uart example
+
+### 1 Brief
+
+Learning USB simulated virtual serial port.
+
+### 2 Hardware Hookup
+
+The hardware resources used in this experiment are:
+
+- UART0
+
+  - TXD0 - IO43
+  - RXD0 - IO44
+- SPI_LCD
+  - CS - IO21
+  - SCK - IO12
+  - SDA - IO11
+  - DC - IO40
+  - PWR - IO41
+  - RST - IO38
+- USB
+
+  - D- - IO19
+  - D+ - IO20
+
+![](../../../../1_docs/3_figures/examples/usb_uart/usb_sch.png)
+
+The position of the USB in the development board is shown as follows:
+
+![](../../../../1_docs/3_figures/examples/usb_uart/usb_position.png)
+
+### 3 Running
+
+#### 3.1 Compilation and Download
+
+There are two ways to download code for ESP32S3.
+
+##### 3.1.1 USB UART
+
+![](../../../../1_docs/3_figures/examples/led/compilation(UART).png)
+
+**1 Compilation process**
+
+- Connect the USB UART on the DNESP32S3 development board to your computer using a USB data cable
+- Open the '15_usb_uart' example using VS Code
+- Select UART port number (Figure ①:ESP-IDF: Select Port to Use (COM, tty, usbserial))
+- Set Engineering Target Chip (Figure ②:ESP-IDF: Set Espressif Device Target)
+- Clearing project engineering（Figure ③:ESP IDF: Full Clean）
+- Select Flash Method (Figure ⑤:ESP-IDF: Select Flash Method)
+- Build Project (Figure ④:ESP-IDF: Build Project)
+
+**2 Download process**
+
+- Download(Figure ⑥:ESP-IDF: Flash Device)
+
+##### 3.1.2 JTAG(USB)
+
+![](../../../../1_docs/3_figures/examples/led/compilation(JTAG).png)
+
+**1 Compilation process**
+
+- Connect the USB(JTAG) on the DNESP32S3 development board to your computer using a USB data cable
+- Open the '15_usb_uart' example using VS Code
+- Select JTAG port number(Figure ①:ESP-IDF: Select Port to Use (COM, tty, usbserial))
+- Clearing project engineering(Figure ③:ESP IDF: Full Clean)
+- Select Flash Method(Figure ⑤:ESP-IDF: Select Flash Method)
+- Build Project(Figure ④:ESP-IDF: Build Project)
+
+**2 Download process**
+
+- Download(Figure ⑥:ESP-IDF: Flash Device)
+
+#### 3.2 Phenomenon
+
+After the program runs, it will simulate a virtual serial port. After connecting to the PC via a data cable, data communication can be performed using a serial debugging assistant on the PC side. The development board side will utilize the USB virtual serial port to send and receive data in real-time, achieving efficient data interaction with the PC side.

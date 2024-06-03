@@ -25,7 +25,7 @@ There are two ways to download code for ESP32S3.
 **1 Compilation process**
 
 - Connect the USB UART on the DNESP32S3 development board to your computer using a USB data cable
-- Open the '08_2_hw_pwm' example using VS Code
+- Open the '06_2_hw_pwm' example using VS Code
 - Select UART port number(Figure ①:ESP-IDF: Select Port to Use (COM, tty, usbserial))
 - Set Engineering Target Chip(Figure ②:ESP-IDF: Set Espressif Device Target)
 - Clearing project engineering(Figure ③:ESP IDF: Full Clean)
@@ -43,7 +43,7 @@ There are two ways to download code for ESP32S3.
 **1 Compilation process**
 
 - Connect the USB(JTAG) on the DNESP32S3 development board to your computer using a USB data cable
-- Open the '08_2_hw_pwm' example using VS Code
+- Open the '06_2_hw_pwm' example using VS Code
 - Select JTAG port number(Figure ①:ESP-IDF: Select Port to Use (COM, tty, usbserial))
 - Clearing project engineering(Figure ③:ESP IDF: Full Clean)
 - Select Flash Method(Figure ⑤:ESP-IDF: Select Flash Method)
@@ -56,5 +56,3 @@ There are two ways to download code for ESP32S3.
 #### 3.2 Phenomenon
 
 After normal operation, the red LED gradually change from dark to bright, and then from light to dark.
-
-![]()

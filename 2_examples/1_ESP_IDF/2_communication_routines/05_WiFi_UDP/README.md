@@ -1,39 +1,114 @@
-/**
- ***************************************************************************************************
- * 实验简介
- * 实验名称：WIFI UDP实验
- * 实验平台：正点原子 ESP32-S3最小系统板
- * 实验目的：学习lwIP socket UDP接口
+## wifi udp example
 
- ***************************************************************************************************
- * 硬件资源及引脚分配
- * 1 LED
-     LED(RED) - IO1
- * 2 正点原子 0.96 寸SPILCD模块
+### 1 Brief
+
+Learn about the UDP protocol.
+
+### 2 Hardware Hookup
+
+The hardware resources used in this experiment are:
+
+- LED - IO1
+
+- LCD - 0.96 inch screen
+  - CS - IO21
+  - SCK - IO12
+  - SDA - IO11
+  - DC - IO40
+  - PWR - IO41
+  - RST - IO38
 
 
- ***************************************************************************************************
- * 实验现象
- * 1 分配IP信息完成之后，我们把网络调试助手设置协议为UDP，同时设置IP等信息，在发送区填入要发送的数据，
- *   按下“发送”按键向开发板发送数据，同时按下开发板的KEY0按键向网络调试助手发送“ALIENTEK DATA”数据。。
- * 2 LED闪烁，指示程序正在运行。
+The WiFi is an internal peripheral, so there is no corresponding connection schematic diagram.
 
- ***************************************************************************************************
- * 注意事项
- * 无
- 
- ***********************************************************************************************************
- * 公司名称：广州市星翼电子科技有限公司（正点原子）
- * 电话号码：020-38271790
- * 传真号码：020-36773971
- * 公司网址：www.alientek.com
- * 购买地址：zhengdianyuanzi.tmall.com
- * 技术论坛：http://www.openedv.com/forum.php
- * 最新资料：www.openedv.com/docs/index.html
- *
- * 在线视频：www.yuanzige.com
- * B 站视频：space.bilibili.com/394620890
- * 公 众 号：mp.weixin.qq.com/s/y--mG3qQT8gop0VRuER9bw
- * 抖    音：douyin.com/user/MS4wLjABAAAAi5E95JUBpqsW5kgMEaagtIITIl15hAJvMO8vQMV1tT6PEsw-V5HbkNLlLMkFf1Bd
- ***********************************************************************************************************
- */
+### 3 Running
+
+#### 3.1 Compilation and Download
+
+There are two ways to download code for ESP32S3.
+
+##### 3.1.1 USB UART
+
+![](../../../../1_docs/3_figures/examples/led/compilation(UART).png)
+
+**1 Compilation process**
+
+- Connect the USB UART on the DNESP32S3 development board to your computer using a USB data cable
+- Open the '05_WiFi_UDP' example using VS Code
+- Select UART port number (Figure ①:ESP-IDF: Select Port to Use (COM, tty, usbserial))
+- Set Engineering Target Chip (Figure ②:ESP-IDF: Set Espressif Device Target)
+- Clearing project engineering（Figure ③:ESP IDF: Full Clean）
+- Select Flash Method (Figure ⑤:ESP-IDF: Select Flash Method)
+- Build Project (Figure ④:ESP-IDF: Build Project)
+
+**2 Download process**
+
+- Download（Figure ⑥:ESP-IDF: Flash Device）
+
+##### 3.1.2 JTAG(USB)
+
+![](../../../../1_docs/3_figures/examples/led/compilation(JTAG).png)
+
+**1 Compilation process**
+
+- Connect the USB(JTAG) on the DNESP32S3 development board to your computer using a USB data cable
+- Open the '05_WiFi_UDP' example using VS Code
+- Select JTAG port number (Figure ①:ESP-IDF: Select Port to Use (COM, tty, usbserial))
+- Clearing project engineering（Figure ③:ESP IDF: Full Clean）
+- Select Flash Method (Figure ⑤:ESP-IDF: Select Flash Method)
+- Build Project (Figure ④:ESP-IDF: Build Project)
+
+**2 Download process**
+
+- Download（Figure ⑥:ESP-IDF: Flash Device）
+
+#### 3.2 Phenomenon
+
+Open the network debugging assistant, configure the connection protocol and network parameters. Once the network connection is successful, data transmission and reception can be achieved.
+
+Note: Before connecting, the computer and the development board must be connected to the same WiFi hotspot.
+
+1.First, open the `wifi_config.c` file in the project and configure the macros `DEFAULT_SSID` and `DEFAULT_PWD`. Among them, DEFAULT_SSID represents the account name required to connect to WiFi, while DEFAULT_PWD represents the password for that WiFi.
+
+![](../../../../1_docs/3_figures/examples/wifi_udp/02_wifi_connet.png)
+
+2.Next, open the `lwip_demo.c` file and set the `IP_ADDR` macro. This macro is used to specify which remote IP address to connect to.
+
+![](../../../../1_docs/3_figures/examples/wifi_udp/03_remote_ip.png)
+
+3.Download the code to the DNESP32S3M mini board.
+
+4.Open the network debugging assistant, configure the connection protocol and network parameters. 
+
+![](../../../../1_docs/3_figures/examples/wifi_udp/01_udp_config.png)
+
+5.Open ESP-IDF monitor on Device to view received data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

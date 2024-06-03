@@ -24,9 +24,9 @@ Note: Before connecting, the computer and the development board must be connecte
 
 1.To configure the WiFi network credentials and remote IP address.
 
-![](../../../../../../../../1，研发一部(MCU)/8，最新版本光盘目录结构/ESP32S3海外上市项目(新)/dnesp32s3-board/1_docs/3_figures/examples/wifi_udp/05_udp_config_mpy.png)
+![](../../../../1_docs/3_figures/examples/wifi_udp/05_udp_config_mpy.png)
 
-2.Download the code to the DNESP32S3 development board.
+2.Download the code to the DNESP32S3 mini board.
 
 3.Open the network debugging assistant, configure the connection protocol and network parameters. 
 

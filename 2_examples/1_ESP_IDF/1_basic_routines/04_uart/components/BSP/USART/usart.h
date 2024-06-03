@@ -7,7 +7,7 @@
  ****************************************************************************************************
  * @attention
  *
- * platform     : ALIENTEK DNESP32S3 Mini board
+ * platform     : ALIENTEK DNESP32S3M mini board
  * website      : www.alientek.com
  * forum        : www.openedv.com/forum.php
  *
@@ -39,6 +39,6 @@
 #define RX_BUF_SIZE         1024
 
 /* function declaration */
-void usart_init(uint32_t baudrate); /* 初始化串口 */
+void usart_init(uint32_t baudrate); /* 初始化串�? */
 
 #endif

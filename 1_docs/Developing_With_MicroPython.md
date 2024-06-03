@@ -54,7 +54,7 @@ Follow the instruction of official website to install Thonny or click the links 
 
 **NOTE**:DNESP32S3 Board uses CH340C to download codes. So before using it, we need to install CH340C driver in our computers.
 
-4.Connect your computer and DNESP32S3 Board with a USB cable.
+4.Connect your computer and DNESP32S3M Mini Board with a USB cable.
 
 ![2_35_DNESP32S3_Board_USB_Connect](./3_figures/image/2_35_DNESP32S3_Board_USB_Connect.png)
 

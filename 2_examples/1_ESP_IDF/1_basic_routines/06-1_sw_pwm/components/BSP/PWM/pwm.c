@@ -7,7 +7,7 @@
  ****************************************************************************************************
  * @attention
  *
- * platform     : ALIENTEK DNESP32S3 Mini board
+ * platform     : ALIENTEK DNESP32S3M mini board
  * website      : www.alientek.com
  * forum        : www.openedv.com/forum.php
  *
@@ -33,7 +33,7 @@ void pwm_init(uint8_t resolution, uint16_t freq)
     ledc_timer_config_t ledc_timer = {0};
     ledc_channel_config_t ledc_channel = {0};
 
-    /* 配置LEDC定时器 */
+    /* 配置LEDC定时�? */
     ledc_timer.duty_resolution = resolution;        /* LEDC channel duty resolution */
     ledc_timer.freq_hz = freq;                      /* Configure LEDC source clock */
     ledc_timer.speed_mode = LEDC_LOW_SPEED_MODE;    /* LEDC speed speed_mode, high-speed mode or low-speed mode */

@@ -26,7 +26,7 @@ Note: Before connecting, the computer and the development board must be connecte
 
 ![](../../../../1_docs/3_figures/examples/wifi_tcpserver/03_tcpserver_mpy.png)
 
-2.Download the code to the DNESP32S3 mini board.
+2.Download the code to the DNESP32S3M mini board.
 
 3.Open the network debugging assistant, configure the connection protocol and network parameters. 
 

@@ -33,7 +33,7 @@ There are two ways to download code for ESP32S3.
 
 **1 Compilation process**
 
-- Connect the USB UART on the DNESP32S3 mini board to your computer using a USB data cable
+- Connect the USB UART on the DNESP32S3M mini board to your computer using a USB data cable
 - Open the '04_WiFi_SmartConfig' example using VS Code
 - Select UART port number (Figure â‘?:ESP-IDF: Select Port to Use (COM, tty, usbserial))
 - Set Engineering Target Chip (Figure â‘?:ESP-IDF: Set Espressif Device Target)
@@ -51,7 +51,7 @@ There are two ways to download code for ESP32S3.
 
 **1 Compilation process**
 
-- Connect the USB(JTAG) on the DNESP32S3 mini board to your computer using a USB data cable
+- Connect the USB(JTAG) on the DNESP32S3M mini board to your computer using a USB data cable
 - Open the '04_WiFi_SmartConfig' example using VS Code
 - Select JTAG port number (Figure â‘?:ESP-IDF: Select Port to Use (COM, tty, usbserial))
 - Clearing project engineeringï¼ˆFigure â‘?:ESP IDF: Full Cleanï¼?
@@ -76,4 +76,4 @@ After normal operation,Configuring network using [EspTouch](https://www.espressi
 
 ![](../../../../1_docs/3_figures/examples/wifi_smartconfig/02_configuration_to_work.png)
 
-4.When the DNESP32S3 Mini board receives this message, the system will extract the SSID and password from it to connect to that network.
+4.When the DNESP32S3M mini board receives this message, the system will extract the SSID and password from it to connect to that network.

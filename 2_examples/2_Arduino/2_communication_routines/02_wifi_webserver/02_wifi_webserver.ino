@@ -40,7 +40,7 @@ void webpage_display(void);
 void setup() 
 {
     char ip_buf[20];
-	uint8_t i = 0;
+    uint8_t i = 0;
 	
     led_init();               /* led initialization */
     uart_init(0, 115200);     /* uart0 initialization */

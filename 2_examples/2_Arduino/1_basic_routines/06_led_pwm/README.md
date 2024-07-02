@@ -33,5 +33,3 @@ The LED PWM control is an internal peripheral, so there is no corresponding conn
 #### 3.2 Phenomenon
 
 After normal operation, the red LED gradually change from dark to bright, and then from light to dark.
-
-![]()

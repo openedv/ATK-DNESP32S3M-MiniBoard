@@ -29,7 +29,7 @@ The hardware resources used in this experiment are:
 
 The position of the sdcard in the mini board is shown as follows:
 
-![]()
+<img src="../../../../1_docs/3_figures/examples/sdcard/sdcard_position.png" style="zoom:50%;" />
 
 ### 3 Running
 
